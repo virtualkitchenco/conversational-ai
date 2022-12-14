@@ -1,87 +1,39 @@
 version: "3.1"
 
 nlu:
-- intent: greet
+- intent: start 
   examples: |
-    - hey
-    - hello
-    - hi
-    - hello there
-    - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
+    - start
 
-- intent: goodbye
+- intent: cancel_item
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
-    - bye
-    - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
-    - see you later
+    - cancel it
+    - you can remove that item
+    - you can remove the [garlic mac](sub_option)
 
-- intent: affirm
+- intent: deny_sub_options
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
-
-- intent: deny
-  examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
+    - I don't want any of those
     - not really
+    - no, i'm good
 
-- intent: mood_great
+- intent: more_options
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - Do you have other options?
+    - Is there anything else
+    - What else do you have
 
-- intent: mood_unhappy
+- intent: selected_substitution
   examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
+    - I'll take the [garlic mac](sub_option)
+    - The [buffalo mac](sub_option) sounds good
+    - How about the [firecracker chicken](sub_option)
+    - [vegan mac](sub_option)
+
+- intent: user_wants_manager
+  examples: |
+    - can I speak to someone else
+    - let me talk to your manager
 
 - intent: bot_challenge
   examples: |
@@ -89,3 +41,92 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - of course
+    - that sounds good
+    - correct
+
+# - intent: greet
+  # examples: |
+    # - hey
+    # - hello
+    # - hi
+    # - hello there
+    # - good morning
+    # - good evening
+    # - moin
+    # - hey there
+    # - let's go
+    # - hey dude
+    # - goodmorning
+    # - goodevening
+    # - good afternoon
+#
+# - intent: goodbye
+  # examples: |
+    # - cu
+    # - good by
+    # - cee you later
+    # - good night
+    # - bye
+    # - goodbye
+    # - have a nice day
+    # - see you around
+    # - bye bye
+    # - see you later
+#
+#
+# - intent: deny
+  # examples: |
+    # - no
+    # - n
+    # - never
+    # - I don't think so
+    # - don't like that
+    # - no way
+    # - not really
+#
+# - intent: mood_great
+  # examples: |
+    # - perfect
+    # - great
+    # - amazing
+    # - feeling like a king
+    # - wonderful
+    # - I am feeling very good
+    # - I am great
+    # - I am amazing
+    # - I am going to save the world
+    # - super stoked
+    # - extremely good
+    # - so so perfect
+    # - so good
+    # - so perfect
+#
+# - intent: mood_unhappy
+  # examples: |
+    # - my day was horrible
+    # - I am sad
+    # - I don't feel very well
+    # - I am disappointed
+    # - super sad
+    # - I'm so sad
+    # - sad
+    # - very sad
+    # - unhappy
+    # - not good
+    # - not very good
+    # - extremly sad
+    # - so saad
+    # - so sad
+#
+# - intent: bot_challenge
+  # examples: |
+    # - are you a bot?
+    # - are you a human?
+    # - am I talking to a bot?
+    # - am I talking to a human?

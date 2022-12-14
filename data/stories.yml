@@ -1,30 +1,23 @@
 version: "3.1"
 
 stories:
+  - story: happy path
+    steps:
+    - intent: selected_substitution
+    - action: utter_sub_selection_confirmed
 
-- story: happy path
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_great
-  - action: utter_happy
+  - story: more options happy path
+    steps:
+    - intent: more_options
+    - action: action_more_options
+    - intent: selected_substitution
+    - action: utter_sub_selection_confirmed
 
-- story: sad path 1
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - intent: deny
-  - action: utter_goodbye
+  - story: cancel the item
+    steps:
+    - intent: more_options
+    - action: action_more_options
+    - intent: deny_sub_options
+    - action: utter_cancel_item
+    - intent: affirm
+    - action: utter_cancel_item_confirm
