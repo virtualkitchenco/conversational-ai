@@ -13,11 +13,16 @@ stories:
     - intent: selected_substitution
     - action: utter_sub_selection_confirmed
 
-  - story: cancel the item
+  - story: more options then cancel the item
     steps:
     - intent: more_options
     - action: action_more_options
     - intent: deny_sub_options
     - action: utter_cancel_item
     - intent: affirm
+    - action: utter_cancel_item_confirm
+
+  - story: quick cancel the item
+    steps:
+    - intent: cancel_item
     - action: utter_cancel_item_confirm

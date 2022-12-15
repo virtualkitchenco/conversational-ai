@@ -1,4 +1,5 @@
-venv/
-.rasa/
-models/
-results/
+rasa/venv/
+rasa/.rasa/
+rasa/models/
+rasa/results/
+rasa/actions/__pycache__ 

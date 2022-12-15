@@ -2,12 +2,14 @@ version: "3.1"
 
 intents:
   - bot_challenge
-  - start
   - affirm
   - selected_substitution
   - more_options
   - cancel_item
   - deny_sub_options
+  - user_wants_manager
+  - out_of_scope
+
 
 responses:
   utter_ill_get_a_human:
@@ -15,11 +17,14 @@ responses:
   utter_iamabot:
   - text: "I am a bot, powered by Rasa."
   utter_sub_selection_confirmed:
-  - text: "Sounds good, I'll make that sub"
+  - text: "Sounds good, I'll sub out the {item_to_sub} for the {selected_sub}"
   utter_cancel_item:
   - text: "Do you want me to cancel the {item_to_sub} then?"
   utter_cancel_item_confirm:
   - text: "Sounds good, I'll remove that item from the order."
+  utter_out_of_scope:
+  - text: "Ah, I can't help out with that just yet."
+
        
 
 
@@ -33,6 +38,7 @@ entities:
 slots:
   item_to_sub:
     type: text
+    influence_conversation: false
     mappings:
     - type: custom
   customer_name:
@@ -50,6 +56,13 @@ slots:
     influence_conversation: false
     mappings:
     - type: custom
+  selected_sub:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sub_option
+      intent: selected_substitution
 
 
 session_config:
