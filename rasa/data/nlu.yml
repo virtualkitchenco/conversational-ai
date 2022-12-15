@@ -49,10 +49,32 @@ nlu:
 - intent: affirm
   examples: |
     - yes
-    - y
+    - yeah
     - of course
     - that sounds good
     - correct
+    - sure
+
+- synonym: buffalo mac
+  examples: |
+    - buffalo mac
+    - buffalo
+
+- synonym: elote mac
+  examples: |
+    - elote mac
+    - elote
+
+- synonym: gilroy garlic mac
+  examples: |
+    - gilroy garlic mac
+    - garlic mac
+    - gilroy garlic
+
+- synonym: vegan mac
+  examples: |
+    - vegan mac
+    - vegan
 
 # - intent: greet
   # examples: |
