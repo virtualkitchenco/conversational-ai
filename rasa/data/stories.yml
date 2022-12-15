@@ -13,6 +13,15 @@ stories:
     - intent: selected_substitution
     - action: utter_sub_selection_confirmed
 
+  - story: suggest more options after first deny
+    steps:
+    - intent: deny_sub_options
+    - action: action_more_options
+    - intent: deny_sub_options
+    - action: utter_cancel_item
+    - intent: affirm
+    - action: utter_cancel_item_confirm
+
   - story: more options then cancel the item
     steps:
     - intent: more_options
