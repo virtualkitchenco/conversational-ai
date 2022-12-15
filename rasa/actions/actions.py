@@ -27,9 +27,7 @@ class ActionMoreOptions(Action):
 
         dispatcher.utter_message(text=f"We also have our {sub_option_1} or {sub_option_2}. Either of those sound good to you?")
 
-        # the session should begin with a `session_started` event and an `action_listen`
-        # as a user message follows
-        return []
+        return [SlotSet("sub_option_1", sub_option_1), SlotSet("sub_option_2", sub_option_2)]
 
 
 class ActionSessionStart(Action):
@@ -41,9 +39,6 @@ class ActionSessionStart(Action):
     ) -> List[Dict[Text, Any]]:
         metadata = tracker.get_slot("session_started_metadata")
 
-        # Do something with the metadata
-        print(metadata)
-
         customer_name = tracker.slots["customer_name"]
         item_to_sub = tracker.slots["item_to_sub"]
         sub_option_1 = tracker.slots["sub_options"][0]
@@ -53,7 +48,7 @@ class ActionSessionStart(Action):
 
         # the session should begin with a `session_started` event and an `action_listen`
         # as a user message follows
-        return [SlotSet("item_to_sub", tracker.slots["item_to_sub"]), SessionStarted(), ActionExecuted("action_listen")]
+        return [SessionStarted(), ActionExecuted("action_listen"), SlotSet("item_to_sub", tracker.slots["item_to_sub"]), SlotSet("sub_option_1", sub_option_1), SlotSet("sub_option_2", sub_option_2), SlotSet("customer_name", customer_name)]
 
 
 class ActionHelloWorld(Action):

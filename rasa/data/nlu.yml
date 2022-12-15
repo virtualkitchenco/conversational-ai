@@ -4,8 +4,10 @@ nlu:
 - intent: out_of_scope
   examples: |
     - how is the [buffalo mac](sub_option)
-    - which item would you recommend
-    - why is the item sold out
+    - which item would you recommend # x 2
+      #- What would you recommend I try?
+    - why is the item sold out # x 2
+      #- Are you serious?! Why are you always out of the gilroy?
     - what is the price difference
 
 - intent: cancel_item
@@ -13,6 +15,10 @@ nlu:
     - cancel it
     - you can remove that item
     - you can remove the [garlic mac](sub_option)
+      # do we want a separate refund intent?
+      #- No, can you just refund me for that item?
+      # two intents: more options and cancel
+      # - Hmmm, no im not interested in either of those items and if you don’t have that, can I please cancel my order and get a refund?
 
 - intent: deny_sub_options
   examples: |
@@ -22,17 +28,25 @@ nlu:
 
 - intent: more_options
   examples: |
-    - Do you have other options?
-    - Is there anything else
-    - What else do you have
+    - do you have other options?
+    - is there anything else
+    - what else do you have
+    - can I order a different item instead of the [mac](sub_option)
+    - can I pick something else?
+    - no, do you have anything else available?
+      #-No, are there any options that aren’t [Mac](sub_option)?
 
 - intent: selected_substitution
   examples: |
-    - I'll take the [garlic mac](sub_option)
-    - The [buffalo mac](sub_option) sounds good
-    - How about the [jalapeno mac](sub_option)
+    - i'll take the [garlic mac](sub_option)
+    - the [buffalo mac](sub_option) sounds good
+    - how about the [jalapeno mac](sub_option)
     - [vegan mac](sub_option)
     - yeah the [elote mac](sub_option)
+    - sure, the [elote mac](sub_option) would be perfect!
+    - hi! yes, i would i like the [elote mac](sub_option), please
+    # - Actually, I changed my mind, can I do the [elote Mac](sub_option) instead
+
 
 - intent: user_wants_manager
   examples: |

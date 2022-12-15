@@ -2,90 +2,54 @@
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
 stories:
-- story: happy path 1
+- story: give more options after first deny
   steps:
-  - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-
-- story: happy path 2
-  steps:
-  - user: |
-      hello there!
-    intent: greet
-  - action: utter_greet
-  - user: |
-      amazing
-    intent: mood_great
-  - action: utter_happy
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
-
-- story: sad path 1
-  steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      yes
-    intent: affirm
-  - action: utter_happy
-
-- story: sad path 2
-  steps:
-  - user: |
-      hello
-    intent: greet
-  - action: utter_greet
-  - user: |
-      not good
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
+  - slot_was_set:
+    - item_to_sub: garlic mac
+  - slot_was_set:
+    - customer_name: raj
+  - intent: deny_sub_options
+    user: |-
       not really
-    intent: deny
-  - action: utter_goodbye
+  - action: action_more_options
+  - intent: deny_sub_options
+    user: |-
+      no, not really
+  - action: utter_cancel_item
+  - intent: affirm
+    user: |-
+      yes please
+  - action: utter_cancel_item_confirm
 
-- story: sad path 3
+- story: happy path select a sub option
   steps:
-  - user: |
-      hi
-    intent: greet
-  - action: utter_greet
-  - user: |
-      very terrible
-    intent: mood_unhappy
-  - action: utter_cheer_up
-  - action: utter_did_that_help
-  - user: |
-      no
-    intent: deny
-  - action: utter_goodbye
+  - slot_was_set:
+    - item_to_sub: garlic mac
+  - slot_was_set:
+    - customer_name: raj
+  - intent: selected_substitution
+    user: |-
+      The [buffalo]{"entity": "sub_option", "value": "buffalo mac"} sounds good!
+  - slot_was_set:
+    - selected_sub: buffalo mac
+  - action: utter_sub_selection_confirmed
 
-- story: say goodbye
+- story: more options then cancel
   steps:
-  - user: |
-      bye-bye!
-    intent: goodbye
-  - action: utter_goodbye
+  - slot_was_set:
+    - item_to_sub: garlic mac
+  - slot_was_set:
+    - customer_name: raj
+  - intent: deny_sub_options
+    user: |-
+      not really
+  - action: action_more_options
+  - intent: deny_sub_options
+    user: |-
+      no i dont want any of those either
+  - action: utter_cancel_item
+  - intent: affirm
+    user: |-
+      yes please
+  - action: utter_cancel_item_confirm
 
-- story: bot challenge
-  steps:
-  - user: |
-      are you a bot?
-    intent: bot_challenge
-  - action: utter_iamabot
