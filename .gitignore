@@ -2,4 +2,4 @@ rasa/venv/
 rasa/.rasa/
 rasa/models/
 rasa/results/
-rasa/actions/__pycache__ 
+rasa/actions/__pycache__/ 

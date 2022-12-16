@@ -14,6 +14,24 @@ from rasa_sdk.events import SlotSet, SessionStarted, ActionExecuted
 from rasa_sdk.executor import CollectingDispatcher
 
 
+class ActionItemRecommendation(Action):
+    def name(self) -> Text:
+        return "action_item_recommendation"
+
+    async def run(
+      self, dispatcher, tracker: Tracker, domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        sub_option_1 = tracker.slots["sub_option_1"]
+        sub_option_2 = tracker.slots["sub_option_2"]
+
+        if tracker.slots["sub_requested_for_recommendation"]:
+            sub_requested_for_recommendation = tracker.slots["sub_requested_for_recommendation"]
+            dispatcher.utter_message(text=f"I think the {sub_requested_for_recommendation} is super tasty")
+        else:
+            dispatcher.utter_message(text=f"I'd recommend the {sub_option_1}! It's a pretty popular dish.")
+
+        return []
+
 class ActionMoreOptions(Action):
     def name(self) -> Text:
         return "action_more_options"

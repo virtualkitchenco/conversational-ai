@@ -9,6 +9,8 @@ intents:
   - deny_sub_options
   - user_wants_manager
   - out_of_scope
+  - wants_recommendation
+  - recommendation_selection_confirm
 
 
 responses:
@@ -18,6 +20,9 @@ responses:
   - text: "I am a bot, powered by Rasa."
   utter_sub_selection_confirmed:
   - text: "Sounds good, I'll sub out the {item_to_sub} for the {selected_sub}"
+  utter_recommendation_selection_confirmed:
+  # TODO: add better logic to figure out what item was suggseted to user
+  - text: "Sounds good, I'll sub out the {item_to_sub} for the {sub_option_1}"
   utter_cancel_item:
   - text: "Do you want me to cancel the {item_to_sub} then?"
   utter_cancel_item_confirm:
@@ -25,12 +30,11 @@ responses:
   utter_out_of_scope:
   - text: "Ah, I can't help out with that just yet."
 
-       
-
 
 actions:
   - action_set_item_to_sub
   - action_more_options
+  - action_item_recommendation
 
 entities:
   - sub_option
@@ -63,6 +67,13 @@ slots:
     - type: from_entity
       entity: sub_option
       intent: selected_substitution
+  sub_requested_for_recommendation:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sub_option
+      intent: wants_recommendation
 
 
 session_config:

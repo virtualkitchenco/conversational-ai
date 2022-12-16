@@ -3,9 +3,6 @@ version: "3.1"
 nlu:
 - intent: out_of_scope
   examples: |
-    - how is the [buffalo mac](sub_option)
-    - which item would you recommend # x 2
-      #- What would you recommend I try?
     - why is the item sold out # x 2
       #- Are you serious?! Why are you always out of the gilroy?
     - what is the price difference
@@ -19,6 +16,15 @@ nlu:
       #- No, can you just refund me for that item?
       # two intents: more options and cancel
       # - Hmmm, no im not interested in either of those items and if you don’t have that, can I please cancel my order and get a refund?
+
+- intent: wants_recommendation
+  examples: |
+    - what would you recommend i try?
+    - which items would you recommend?
+    - what do you think of the [elote mac](sub_option)
+    - do you have a recommendation
+    - what's the [vegan mac](sub_option) like?
+    - how's the [buffalo mac](sub_option)?
 
 - intent: deny_sub_options
   examples: |
@@ -68,6 +74,11 @@ nlu:
     - that sounds good
     - correct
     - sure
+
+- intent: recommendation_selection_confirm
+  examples: |
+    - that sounds good!
+    - yeah i'll take that 
 
 - synonym: buffalo mac
   examples: |

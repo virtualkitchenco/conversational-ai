@@ -31,7 +31,15 @@ stories:
     - intent: affirm
     - action: utter_cancel_item_confirm
 
+  - story: asks for general recommendation
+    steps:
+    - intent: wants_recommendation
+    - action: action_item_recommendation
+    - intent: recommendation_selection_confirm
+    - action: utter_recommendation_selection_confirmed
+
   - story: quick cancel the item
     steps:
     - intent: cancel_item
     - action: utter_cancel_item_confirm
+

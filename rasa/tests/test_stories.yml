@@ -53,3 +53,22 @@ stories:
       yes please
   - action: utter_cancel_item_confirm
 
+- story: user asks for recommendation and takes the rec
+  steps:
+  - slot_was_set:
+    - item_to_sub: Gilroy Garlic Mac
+  - slot_was_set:
+    - sub_option_1: Elote mac
+  - slot_was_set:
+    - sub_option_2: Buffalo mac
+  - slot_was_set:
+    - customer_name: Shruthi
+  - intent: wants_recommendation
+    user: |-
+      do you have a recommendation between the two?
+  - action: action_item_recommendation
+  - intent: recommendation_selection_confirm
+    user: |-
+      ok cool ill take that
+  - action: utter_recommendation_selection_confirmed
+
