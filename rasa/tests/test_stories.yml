@@ -86,3 +86,32 @@ stories:
       ok cool ill take that
   - action: utter_recommendation_selection_confirmed
 
+- story: why is item out of stock
+  steps:
+  - slot_was_set:
+    - item_to_sub: Gilroy Garlic Mac
+  - slot_was_set:
+    - sub_option_1: Elote mac
+  - slot_was_set:
+    - sub_option_2: Buffalo mac
+  - slot_was_set:
+    - customer_name: Caro
+  - intent: question_item_out_of_stock
+    user: |-
+      why is this item not available?
+  - action: utter_sorry_we_are_out
+  - intent: more_options
+    user: |-
+      i see, what other options can i pick from?
+  - action: action_more_options
+  - slot_was_set:
+    - sub_option_1: Vegan mac
+  - slot_was_set:
+    - sub_option_2: Jalapeno mac
+  - intent: selected_substitution
+    user: |-
+      ill take the [buffalo mac](sub_option)
+  - slot_was_set:
+    - selected_sub: buffalo mac
+  - action: utter_sub_selection_confirmed
+

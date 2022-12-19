@@ -31,6 +31,11 @@ stories:
     - intent: affirm
     - action: utter_cancel_item_confirm
 
+  - story: quick cancel the item
+    steps:
+    - intent: cancel_item
+    - action: utter_cancel_item_confirm
+
   - story: asks for general recommendation
     steps:
     - intent: wants_recommendation
@@ -38,8 +43,9 @@ stories:
     - intent: recommendation_selection_confirm
     - action: utter_recommendation_selection_confirmed
 
-  - story: quick cancel the item
+  - story: user_questions_out_of_stock
     steps:
-    - intent: cancel_item
-    - action: utter_cancel_item_confirm
+    - intent: question_item_out_of_stock
+    - action: utter_sorry_we_are_out
+
 

@@ -3,9 +3,9 @@ version: "3.1"
 nlu:
 - intent: out_of_scope
   examples: |
-    - why is the item sold out # x 2
-      #- Are you serious?! Why are you always out of the gilroy?
     - what is the price difference
+      # - why is the item sold out # x 2
+      #- Are you serious?! Why are you always out of the gilroy?
 
 - intent: cancel_item
   examples: |
@@ -37,7 +37,7 @@ nlu:
     - do you have other options?
     - is there anything else
     - what else do you have
-    - can I order a different item instead of the [mac](sub_option)
+    - can I order a different item instead
     - can I pick something else?
     - no, do you have anything else available?
       #-No, are there any options that aren’t [Mac](sub_option)?
@@ -74,11 +74,28 @@ nlu:
     - that sounds good
     - correct
     - sure
+    - yes please
+    - yeah that would be great
 
 - intent: recommendation_selection_confirm
   examples: |
     - that sounds good!
     - yeah i'll take that 
+      
+- intent: question_item_out_of_stock
+  examples: |
+    - why is this out of stock?
+    - the app said it was available so why is it sold out?
+    - Are you serious?! Why are you always out of the [gilroy](sub_option)?
+    - why is this item not available?
+
+# will i get a refund
+# - Will I get my money back
+# - Will I get a refund?
+# - How much will my refund be
+# - How will I get my money back
+# - That is more expensive on your menu
+# - Do you have a description of the item?
 
 - synonym: buffalo mac
   examples: |
@@ -101,83 +118,3 @@ nlu:
     - vegan mac
     - vegan
 
-# - intent: greet
-  # examples: |
-    # - hey
-    # - hello
-    # - hi
-    # - hello there
-    # - good morning
-    # - good evening
-    # - moin
-    # - hey there
-    # - let's go
-    # - hey dude
-    # - goodmorning
-    # - goodevening
-    # - good afternoon
-#
-# - intent: goodbye
-  # examples: |
-    # - cu
-    # - good by
-    # - cee you later
-    # - good night
-    # - bye
-    # - goodbye
-    # - have a nice day
-    # - see you around
-    # - bye bye
-    # - see you later
-#
-#
-# - intent: deny
-  # examples: |
-    # - no
-    # - n
-    # - never
-    # - I don't think so
-    # - don't like that
-    # - no way
-    # - not really
-#
-# - intent: mood_great
-  # examples: |
-    # - perfect
-    # - great
-    # - amazing
-    # - feeling like a king
-    # - wonderful
-    # - I am feeling very good
-    # - I am great
-    # - I am amazing
-    # - I am going to save the world
-    # - super stoked
-    # - extremely good
-    # - so so perfect
-    # - so good
-    # - so perfect
-#
-# - intent: mood_unhappy
-  # examples: |
-    # - my day was horrible
-    # - I am sad
-    # - I don't feel very well
-    # - I am disappointed
-    # - super sad
-    # - I'm so sad
-    # - sad
-    # - very sad
-    # - unhappy
-    # - not good
-    # - not very good
-    # - extremly sad
-    # - so saad
-    # - so sad
-#
-# - intent: bot_challenge
-  # examples: |
-    # - are you a bot?
-    # - are you a human?
-    # - am I talking to a bot?
-    # - am I talking to a human?

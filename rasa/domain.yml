@@ -11,6 +11,7 @@ intents:
   - out_of_scope
   - wants_recommendation
   - recommendation_selection_confirm
+  - question_item_out_of_stock
 
 
 responses:
@@ -29,6 +30,8 @@ responses:
   - text: "Sounds good, I'll remove that item from the order."
   utter_out_of_scope:
   - text: "Ah, I can't help out with that just yet."
+  utter_sorry_we_are_out:
+  - text: "Sorry about the confusion, sometimes there is a delay when an items availability updates on the app."
 
 
 actions:
