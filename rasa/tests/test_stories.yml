@@ -2,36 +2,29 @@
 #### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
 
 stories:
-- story: give more options after first deny
+- story: happy path more options then select a sub option
   steps:
   - slot_was_set:
-    - item_to_sub: garlic mac
+    - item_to_sub: Gilroy Garlic Mac
   - slot_was_set:
-    - customer_name: raj
-  - intent: deny_sub_options
+    - sub_option_1: Elote mac
+  - slot_was_set:
+    - sub_option_2: Buffalo mac
+  - slot_was_set:
+    - customer_name: Yazen
+  - intent: more_options
     user: |-
-      not really
+      what else can i choose from?
   - action: action_more_options
-  - intent: deny_sub_options
-    user: |-
-      no, not really
-  - action: utter_cancel_item
-  - intent: affirm
-    user: |-
-      yes please
-  - action: utter_cancel_item_confirm
-
-- story: happy path select a sub option
-  steps:
   - slot_was_set:
-    - item_to_sub: garlic mac
+    - sub_option_1: Vegan mac
   - slot_was_set:
-    - customer_name: raj
+    - sub_option_2: Jalapeno mac
   - intent: selected_substitution
     user: |-
-      The [buffalo]{"entity": "sub_option", "value": "buffalo mac"} sounds good!
+      the [vegan mac](sub_option) sounds good
   - slot_was_set:
-    - selected_sub: buffalo mac
+    - selected_sub: vegan mac
   - action: utter_sub_selection_confirmed
 
 - story: more options then cancel
@@ -66,6 +59,27 @@ stories:
   - intent: wants_recommendation
     user: |-
       do you have a recommendation between the two?
+  - action: action_item_recommendation
+  - intent: recommendation_selection_confirm
+    user: |-
+      ok cool ill take that
+  - action: utter_recommendation_selection_confirmed
+
+- story: asks for recommendation of a specific item
+  steps:
+  - slot_was_set:
+    - item_to_sub: Gilroy Garlic Mac
+  - slot_was_set:
+    - sub_option_1: Elote mac
+  - slot_was_set:
+    - sub_option_2: Buffalo mac
+  - slot_was_set:
+    - customer_name: Yazen
+  - intent: wants_recommendation
+    user: |-
+      Yeah sure, what do you think of the [Elote mac](sub_option)?
+  - slot_was_set:
+    - sub_requested_for_recommendation: Elote mac
   - action: action_item_recommendation
   - intent: recommendation_selection_confirm
     user: |-
