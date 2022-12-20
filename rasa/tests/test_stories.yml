@@ -115,3 +115,36 @@ stories:
     - selected_sub: buffalo mac
   - action: utter_sub_selection_confirmed
 
+- story: asks about ingredients and then selects
+  steps:
+  - slot_was_set:
+    - item_to_sub: Gilroy Garlic Mac
+  - slot_was_set:
+    - sub_option_1: Elote mac
+  - slot_was_set:
+    - sub_option_2: Buffalo mac
+  - slot_was_set:
+    - customer_name: Caro
+  - intent: more_options
+    user: |-
+      what else do you have
+  - action: action_more_options
+  - slot_was_set:
+    - sub_option_1: Vegan mac
+  - slot_was_set:
+    - sub_option_2: Jalapeno mac
+  - intent: wants_recommendation
+    user: |-
+      what is the [vegan mac](sub_option) like
+  - slot_was_set:
+    - sub_requested_for_recommendation: vegan mac
+  - action: action_item_recommendation
+  - intent: request_item_ingredients
+    user: |-
+      whats in it?
+  - action: action_item_ingredients
+  - intent: recommendation_selection_confirm
+    user: |-
+      ok cool ill take one of those
+  - action: utter_recommendation_selection_confirmed
+

@@ -10,17 +10,21 @@ intents:
   - user_wants_manager
   - out_of_scope
   - wants_recommendation
-  - recommendation_selection_confirm
+  - previous_selection_confirm
   - question_item_out_of_stock
+  - request_item_ingredients
 
 
 responses:
   utter_ill_get_a_human:
   - text: "Sorry I couldn't help, let me get my manager."
   utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
+  - text: "They call me Lil Jack"
+    image: "https://drive.google.com/file/d/1odFH7La5hqLq2Tgg6eb3eh1wqOjLsWYZ/view?usp=share_link"
   utter_sub_selection_confirmed:
   - text: "Sounds good, I'll sub out the {item_to_sub} for the {selected_sub}"
+  utter_ingredients_selection_confirmed:
+  - text: "Sounds good, I'll sub out the {item_to_sub} for the {item_ingredients_requested}"
   utter_recommendation_selection_confirmed:
   # TODO: add better logic to figure out what item was suggseted to user
   - text: "Sounds good, I'll sub out the {item_to_sub} for the {sub_option_1}"
@@ -38,6 +42,7 @@ actions:
   - action_set_item_to_sub
   - action_more_options
   - action_item_recommendation
+  - action_item_ingredients
 
 entities:
   - sub_option
@@ -77,7 +82,13 @@ slots:
     - type: from_entity
       entity: sub_option
       intent: wants_recommendation
-
+  item_ingredients_requested:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: sub_option
+      intent: request_item_ingredients
 
 session_config:
   session_expiration_time: 60

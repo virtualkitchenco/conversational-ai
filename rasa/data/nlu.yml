@@ -77,10 +77,11 @@ nlu:
     - yes please
     - yeah that would be great
 
-- intent: recommendation_selection_confirm
+- intent: previous_selection_confirm
   examples: |
     - that sounds good!
     - yeah i'll take that 
+    - ok cool ill take one of those
       
 - intent: question_item_out_of_stock
   examples: |
@@ -88,6 +89,15 @@ nlu:
     - the app said it was available so why is it sold out?
     - Are you serious?! Why are you always out of the [gilroy](sub_option)?
     - why is this item not available?
+
+- intent: request_item_ingredients
+  examples: |
+    - what's in the [vegan mac](sub_option)
+    - what is the [buffalo mac](sub_option)
+    - what's the [buffalo mac](sub_option)
+    - is the [buffalo mac](sub_option) vegitarian
+    - do you have an ingredients list for the [elote mac](sub_option)
+    - what's in it?
 
 # will i get a refund
 # - Will I get my money back

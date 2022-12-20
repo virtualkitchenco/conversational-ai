@@ -40,7 +40,7 @@ stories:
     steps:
     - intent: wants_recommendation
     - action: action_item_recommendation
-    - intent: recommendation_selection_confirm
+    - intent: previous_selection_confirm
     - action: utter_recommendation_selection_confirmed
 
   - story: user_questions_out_of_stock
@@ -48,4 +48,27 @@ stories:
     - intent: question_item_out_of_stock
     - action: utter_sorry_we_are_out
 
-
+  - story: user_asks_for_specific_ingredients_after_rec
+    steps:
+      - intent: more_options
+      - action: action_more_options
+      - slot_was_set:
+        - sub_option_1: Vegan mac
+      - slot_was_set:
+        - sub_option_2: Jalapeno mac
+      - intent: wants_recommendation
+      - slot_was_set:
+        - sub_requested_for_recommendation: vegan mac
+      - action: action_item_recommendation
+      - intent: request_item_ingredients
+      - action: action_item_ingredients
+      - intent: previous_selection_confirm
+      - action: utter_ingredients_selection_confirmed
+    
+  - story: user_asks_for_specific_ingredients
+    steps:
+      - intent: request_item_ingredients
+      - action: action_item_ingredients
+      - intent: previous_selection_confirm
+      - action: utter_ingredients_selection_confirmed
+    

@@ -32,6 +32,35 @@ class ActionItemRecommendation(Action):
 
         return []
 
+class ActionItemIngredients(Action):
+    def name(self) -> Text:
+        return "action_item_ingredients"
+
+    async def run(
+      self, dispatcher, tracker: Tracker, domain: Dict[Text, Any]
+    ) -> List[Dict[Text, Any]]:
+        sub_option_1 = tracker.slots["sub_option_1"]
+        sub_option_2 = tracker.slots["sub_option_2"] 
+
+        item_ingredients_requested = None 
+
+        print(tracker.slots["item_ingredients_requested"])
+        if tracker.slots["item_ingredients_requested"]:
+            item_ingredients_requested = tracker.slots["item_ingredients_requested"] 
+        else: 
+            item_ingredients_requested = tracker.slots["sub_option_1"]
+
+        if 'elote' in item_ingredients_requested.lower():
+            dispatcher.utter_message(text=f"The Elote Mac is a mac and cheese topped with corn and tajin.")
+        elif 'buffalo' in item_ingredients_requested.lower():
+            dispatcher.utter_message(text=f"The Buffalo Mac is a mac and cheese topped buffalo hot sauce and chicken")
+        elif 'vegan' in item_ingredients_requested.lower():
+            dispatcher.utter_message(text=f"The Vegan Mac is a mac and cheese with a vegan cheese sauce")
+        elif 'jalapeno' in item_ingredients_requested.lower():
+            dispatcher.utter_message(text=f"The Vegan Mac is a mac and cheese with a spicy jalapeno cheese sauce")
+
+        return []
+
 class ActionMoreOptions(Action):
     def name(self) -> Text:
         return "action_more_options"
