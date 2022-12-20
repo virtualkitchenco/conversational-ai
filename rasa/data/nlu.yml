@@ -104,6 +104,7 @@ nlu:
     - why is this item not available?
     - How come this item is unavailable?
     - What happened to the [gilroy](sub_option)?
+    - what is the issue
 
 - intent: request_item_ingredients
   examples: |
@@ -115,6 +116,17 @@ nlu:
     - what's in it?
     - Could I have a list of ingredients for the [elote mac](sub_option)?
     - What does the [elote mac](sub_option) include?
+    - Can you tell me more about the [Elote mac](sub_option)?
+
+- intent: non_mac_options
+  examples: |
+    - are there any non mac options
+    - do you have anything else thats not mac
+    - Are there any alternatives that are not macs?
+    - Are there any other choices besides mac and cheese
+    - can I have any items that don't have mac and cheese
+    - do you have any other non-mac options
+    - is there something that isnt macaroni
 
 - synonym: buffalo mac
   examples: |

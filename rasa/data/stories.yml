@@ -79,3 +79,10 @@ stories:
       - intent: previous_selection_confirm
       - action: utter_ingredients_selection_confirmed
     
+  - story: after_there_other_mac_options
+    steps:
+      - intent: more_options
+      - action: action_more_options
+      - intent: non_mac_options
+      - action: utter_sorry_we_only_have_mac
+    

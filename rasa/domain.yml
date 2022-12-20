@@ -13,6 +13,7 @@ intents:
   - previous_selection_confirm
   - question_item_out_of_stock
   - request_item_ingredients
+  - non_mac_options
 
 
 responses:
@@ -36,6 +37,8 @@ responses:
   - text: "Ah, I can't help out with that just yet."
   utter_sorry_we_are_out:
   - text: "Sorry about the confusion, sometimes there is a delay when an items availability updates on the app."
+  utter_sorry_we_only_have_mac:
+  - text: "Sorry, we only have macaroni options right now."
 
 
 actions:

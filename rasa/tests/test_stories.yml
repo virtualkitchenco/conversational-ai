@@ -110,7 +110,7 @@ stories:
     - sub_option_2: Jalapeno mac
   - intent: selected_substitution
     user: |-
-      ill take the [buffalo mac](sub_option)
+      i'll take the [buffalo mac](sub_option)
   - slot_was_set:
     - selected_sub: buffalo mac
   - action: utter_sub_selection_confirmed
@@ -147,4 +147,28 @@ stories:
     user: |-
       ok cool ill take one of those
   - action: utter_ingredients_selection_confirmed
+
+- story: we only have macaroni right now
+  steps:
+  - slot_was_set:
+    - item_to_sub: Gilroy Garlic Mac
+  - slot_was_set:
+    - sub_option_1: Elote mac
+  - slot_was_set:
+    - sub_option_2: Buffalo mac
+  - slot_was_set:
+    - customer_name: Kirthi
+  - intent: more_options
+    user: |-
+      do you have any other options
+  - action: action_more_options
+  - slot_was_set:
+    - sub_option_1: Vegan mac
+  - slot_was_set:
+    - sub_option_2: Jalapeno mac
+  - intent: non_mac_options
+    user: |-
+      do you have something thats not macaroni
+  - action: utter_sorry_we_only_have_mac
+
 
