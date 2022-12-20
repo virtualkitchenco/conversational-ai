@@ -90,9 +90,9 @@ nlu:
     - yes please
     - yeah that would be great
 
+  # TODO: combine this with the affirm intent?
 - intent: previous_selection_confirm
   examples: |
-    - that sounds good!
     - yeah i'll take that 
     - ok cool ill take one of those
       

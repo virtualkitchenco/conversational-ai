@@ -69,6 +69,13 @@ stories:
     steps:
       - intent: request_item_ingredients
       - action: action_item_ingredients
+      - intent: affirm
+      - action: utter_ingredients_selection_confirmed
+
+  - story: user_asks_for_specific_ingredients_2
+    steps:
+      - intent: request_item_ingredients
+      - action: action_item_ingredients
       - intent: previous_selection_confirm
       - action: utter_ingredients_selection_confirmed
     
