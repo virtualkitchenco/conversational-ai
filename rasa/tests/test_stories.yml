@@ -60,7 +60,7 @@ stories:
     user: |-
       do you have a recommendation between the two?
   - action: action_item_recommendation
-  - intent: recommendation_selection_confirm
+  - intent: previous_selection_confirm
     user: |-
       ok cool ill take that
   - action: utter_recommendation_selection_confirmed
@@ -81,7 +81,7 @@ stories:
   - slot_was_set:
     - sub_requested_for_recommendation: Elote mac
   - action: action_item_recommendation
-  - intent: recommendation_selection_confirm
+  - intent: previous_selection_confirm
     user: |-
       ok cool ill take that
   - action: utter_recommendation_selection_confirmed
@@ -143,8 +143,8 @@ stories:
     user: |-
       whats in it?
   - action: action_item_ingredients
-  - intent: recommendation_selection_confirm
+  - intent: previous_selection_confirm
     user: |-
       ok cool ill take one of those
-  - action: utter_recommendation_selection_confirmed
+  - action: utter_ingredients_selection_confirmed
 

@@ -12,8 +12,10 @@ nlu:
     - cancel it
     - you can remove that item
     - you can remove the [garlic mac](sub_option)
+    - You can drop the [garlic mac](sub_option)
+    - can you remove that item from the order
       # do we want a separate refund intent?
-      #- No, can you just refund me for that item?
+      # - No, can you just refund me for that item?
       # two intents: more options and cancel
       # - Hmmm, no im not interested in either of those items and if you don’t have that, can I please cancel my order and get a refund?
 
@@ -25,12 +27,17 @@ nlu:
     - do you have a recommendation
     - what's the [vegan mac](sub_option) like?
     - how's the [buffalo mac](sub_option)?
+    - what would you suggest?
+    - what is your favorite dish?
+    - what would you suggest i order?
 
 - intent: deny_sub_options
   examples: |
     - I don't want any of those
     - not really
     - no, i'm good
+    - I'm not interested in those items
+    - no thanks
 
 - intent: more_options
   examples: |
@@ -40,7 +47,10 @@ nlu:
     - can I order a different item instead
     - can I pick something else?
     - no, do you have anything else available?
-      #-No, are there any options that aren’t [Mac](sub_option)?
+    - are there other choices?
+    - do you offer anything else?
+    - what else can i choose from?
+    # - No, are there any options that aren’t [Mac](sub_option)?
 
 - intent: selected_substitution
   examples: |
@@ -51,13 +61,15 @@ nlu:
     - yeah the [elote mac](sub_option)
     - sure, the [elote mac](sub_option) would be perfect!
     - hi! yes, i would i like the [elote mac](sub_option), please
+    - I'll go for the [garlic mac](sub_option).
+    - I think I'm going to try the [buffalo mac](sub_option).
     # - Actually, I changed my mind, can I do the [elote Mac](sub_option) instead
-
 
 - intent: user_wants_manager
   examples: |
     - can I speak to someone else
     - let me talk to your manager
+    - I'd like to have a word with your manager
 
 - intent: bot_challenge
   examples: |
@@ -65,6 +77,7 @@ nlu:
     - are you a human?
     - am I talking to a bot?
     - am I talking to a human?
+    - who are you
 
 - intent: affirm
   examples: |
@@ -89,6 +102,8 @@ nlu:
     - the app said it was available so why is it sold out?
     - Are you serious?! Why are you always out of the [gilroy](sub_option)?
     - why is this item not available?
+    - How come this item is unavailable?
+    - What happened to the [gilroy](sub_option)?
 
 - intent: request_item_ingredients
   examples: |
@@ -96,16 +111,10 @@ nlu:
     - what is the [buffalo mac](sub_option)
     - what's the [buffalo mac](sub_option)
     - is the [buffalo mac](sub_option) vegitarian
-    - do you have an ingredients list for the [elote mac](sub_option)
+    - do you have an ingredients list for the 
     - what's in it?
-
-# will i get a refund
-# - Will I get my money back
-# - Will I get a refund?
-# - How much will my refund be
-# - How will I get my money back
-# - That is more expensive on your menu
-# - Do you have a description of the item?
+    - Could I have a list of ingredients for the [elote mac](sub_option)?
+    - What does the [elote mac](sub_option) include?
 
 - synonym: buffalo mac
   examples: |
@@ -127,4 +136,12 @@ nlu:
   examples: |
     - vegan mac
     - vegan
+
+# will i get a refund
+# - Will I get my money back
+# - Will I get a refund?
+# - How much will my refund be
+# - How will I get my money back
+# - That is more expensive on your menu
+# - Do you have a description of the item?
 
